@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test2</title>
+</head>
+<body>
+    <ul>
+        <li>
+            <div>1. H.getNowUrl():</div>
+            <div id="url_text"></div><br/>
+        </li>
+        <li>
+            <div>2. &lt;a href="#!test1"&gt;test1&lt;/a&gt;:</div>
+            <div><a href="#!test1">test1</a></div><br/>
+        </li>
+        <li>
+            <div>3. H.go('test1'):</div>
+            <div><button id="go_btn">H.go('test1')</button></div>
+        </li>
+    </ul>
+
+    <script>
+        //get now url.
+        var url_text = document.getElementById('url_text');
+        url_text.innerHTML = H.getNowUrl();
+
+        //go to test1.
+        var go_btn = document.getElementById('go_btn');
+        go_btn.onclick = function() {
+            H.go('test1');
+        };
+    </script>
+</body>
+</html>

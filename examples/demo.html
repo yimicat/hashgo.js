@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="https://gitee.com/yimicat" />
+    <title>Demo</title>
+    <link rel="stylesheet" href="css/layout.css"/>
+    <script src="js/jquery.min.js"></script>
+    <script> window.console = window.console || (function () {var c ={};c.log = c.warn = c.debug = c.info = c.error = c.time = c.dir = c.profile= c.clear = c.exception = c.trace = c.assert = function(){};return c;})();</script>
+    <script src="../dist/js/hashgo.min.js"></script>
+</head>
+<body>
+    <div class="ui-header">
+        <ul class="ui-nav">
+            <li><a href="#!test1">test1</a></li>
+            <li><a href="#!test2">test2</a></li>
+            <li><a href="#!test3">test3</a></li>
+            <li><a href="#!test4">test4</a></li>
+        </ul>
+    </div>
+
+    <div class="ui-container">
+        <div class="ui-menu">
+            <ul class="ui-side">
+                <li><a href="#!test1">test1</a></li>
+                <li><a href="#!test2">test2</a></li>
+                <li><a href="#!test3">test3</a></li>
+                <li><a href="#!test4">test4</a></li>
+            </ul>
+        </div>
+        <div class="ui-main">
+            <div id="main">
+                blank
+            </div>
+            <div class="ui-footer ui-txt-center">
+                © 2017 Yimi MIT license
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var content = $('#main');
+        H.init({
+            indexUrl : 'test1',
+            beforeCall : function () {
+                content.html('Loading...');
+
+            },
+            notFindUrlCall : function () {
+                content.html('not find page');
+            }
+        });
+
+        H.router('test1', function () {
+            setTimeout(function() {
+                $.get("test1.html", function(result){
+                    content.html(result);
+                });
+            },1000)
+
+        }).router('test2', function () {
+            $.get("test2.html", function(result){
+                content.html(result);
+            });
+
+        }).router('test3', function (url) {
+            alert('now page:' + url);
+            $.get("test3.html", function(result){
+                content.html(result);
+            });
+        })
+    </script>
+</body>
+</html>

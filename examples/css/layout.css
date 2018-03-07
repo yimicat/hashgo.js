@@ -1,0 +1,96 @@
+@charset "UTF-8";
+/*! MIT License By Yimi https://github.com/yimicat */
+
+html, body, ul {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #fff
+}
+
+ul {
+    list-style: none;
+}
+
+.ui-header {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    top: 0;
+    background: #4476A7;
+}
+
+.ui-container {
+    position: absolute;
+    width: 100%;
+    top: 50px;
+    bottom: 0;
+    background: red;
+}
+
+.ui-footer {
+    position: absolute;
+    height: 30px;
+    width: 100%;
+    bottom: 0;
+    line-height: 30px;
+    background: #fff;
+}
+
+.ui-menu {
+    height: 100%;
+    width: 200px;
+    float: left;
+    overflow: auto;
+    background: #404A5E;
+}
+
+.ui-main {
+    position: relative;
+    height: 100%;
+    margin-left: 200px;
+    background: #e3e3e3;
+}
+
+.ui-txt-center {
+    text-align: center;
+}
+
+.ui-nav > li {
+    display: inline-block;
+    line-height: 50px;
+    float: left;
+    vertical-align: middle;
+}
+
+.ui-side li {
+    display: block;
+    line-height: 45px;
+    vertical-align: middle;
+}
+
+.ui-nav > li > a, .ui-side > li > a {
+    padding: 0 15px;
+    display: block;
+}
+
+.ui-side > li > a:hover {
+    background-color: #4E5465;
+}
+
+.ui-nav > li > a:hover {
+    background-color: #446697;
+}
+
+@media screen and (max-width: 950px) {
+    .ui-menu {
+        display: none;
+    }
+
+    .ui-main {
+        margin-left: 0;
+    }
+}
