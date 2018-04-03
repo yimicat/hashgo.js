@@ -8,31 +8,31 @@
     <link rel="stylesheet" href="css/layout.css"/>
     <script src="js/jquery.min.js"></script>
     <script> window.console = window.console || (function () {var c ={};c.log = c.warn = c.debug = c.info = c.error = c.time = c.dir = c.profile= c.clear = c.exception = c.trace = c.assert = function(){};return c;})();</script>
-    <script src="../dist/js/hashgo.min.js"></script>
+    <script src="../src/js/hashgo.js"></script>
+    <link id="css" rel="stylesheet" href="js/prism/prism-black.css" />
+    <style>.menu, a[href="#top"] {z-index:999999999;overflow: hidden; position: fixed; right: 8px; cursor: pointer; opacity: 0.8; background: #eee; text-decoration: none; border-radius: 5px; } .menu { top: 8px; padding-right: 10px; } .menu h3 { margin-left: 10px } a[href="#top"] { width: 50px; height: 50px; bottom: 8px; cursor: pointer; text-decoration: none; font-size: 24px; text-align: center; line-height: 50px; } .css-btn-list { float: right; list-style: none; padding: 0; margin: 0; } .css-btn-list li { margin-left: 5px; float: left; background: #f5f2f0; width: 20px; height: 20px; } .css-btn-list li.black { background: black; } .css-btn-list li.blue { background: #358ccb; } </style>
 </head>
 <body>
     <div class="ui-header">
         <ul class="ui-nav">
-            <li><a href="#!test1">test1</a></li>
-            <li><a href="#!test2">test2</a></li>
-            <li><a href="#!test3">test3</a></li>
-            <li><a href="#!test4">test4</a></li>
+            <li><a href="#!init">初始化</a></li>
+            <li><a href="#!doc">函数</a></li>
+            <li><a href="#!test">加载新页面js</a></li>
+            <li><a href="#!test1">404</a></li>
         </ul>
     </div>
 
     <div class="ui-container">
         <div class="ui-menu">
             <ul class="ui-side">
-                <li><a href="#!test1">test1</a></li>
-                <li><a href="#!test2">test2</a></li>
-                <li><a href="#!test3">test3</a></li>
-                <li><a href="#!test4">test4</a></li>
+                <li><a href="#!init">初始化</a></li>
+                <li><a href="#!doc">函数</a></li>
+                <li><a href="#!test">加载新页面js</a></li>
+                <li><a href="#!test1">404</a></li>
             </ul>
         </div>
         <div class="ui-main">
-            <div id="main">
-                blank
-            </div>
+            <div id="main"></div>
             <div class="ui-footer ui-txt-center">
                 © 2017 Yimi MIT license
             </div>
@@ -42,34 +42,32 @@
     <script>
         var content = $('#main');
         H.init({
-            indexUrl : 'test1',
-            beforeCall : function () {
+            indexUrl : 'init',
+            beforeCall : function (url) {
+                console.log('now page:' + url);
                 content.html('Loading...');
-
             },
-            notFindUrlCall : function () {
-                content.html('not find page');
+            notFindUrlCall : function (url) {
+                content.html('not find page ' + url);
             }
         });
 
-        H.router('test1', function () {
+        H.router('init', function () {
+            $.get("init.html", function(result){
+                content.html(result);
+            });
+        }).router('doc', function () {
+            $.get("doc.html", function(result){
+                content.html(result);
+            });
+
+        }).router('test', function (url) {
             setTimeout(function() {
-                $.get("test1.html", function(result){
+                $.get("test.html", function(result){
                     content.html(result);
                 });
-            },1000)
-
-        }).router('test2', function () {
-            $.get("test2.html", function(result){
-                content.html(result);
-            });
-
-        }).router('test3', function (url) {
-            alert('now page:' + url);
-            $.get("test3.html", function(result){
-                content.html(result);
-            });
-        })
+            },1000);
+        });
     </script>
 </body>
 </html>

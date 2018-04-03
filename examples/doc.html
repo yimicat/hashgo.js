@@ -1,0 +1,32 @@
+<ol>
+    <li>
+        <h3>[html标签跳转]</h3>
+        <pre><code class="language-javascript">&lt;a href="#!test2"&gt;test2&lt;/a&gt;</code></pre>
+        <div><a href="#!test2">test2</a></div>
+    </li>
+
+    <li>
+        <h3>[调用函数跳转]</h3>
+        <pre><code class="language-javascript">H.go('test3');</code></pre>
+        <div><button id="go_btn">H.go('test3')</button></div>
+    </li>
+    <script>
+        //go to test1.
+        var go_btn = document.getElementById('go_btn');
+        go_btn.onclick = function() {
+            H.go('test3');
+        };
+    </script>
+
+    <li>
+        <h3 id="setOptions">[获取当前地址Hash]</h3>
+        <pre><code class="language-javascript">H.getNowUrl();</code></pre>
+        H.getNowUrl(); => <span id="url_text"></span>
+    </li>
+    <script>
+        //get now url.
+        var url_text = document.getElementById('url_text');
+        url_text.innerHTML = H.getNowUrl();
+    </script>
+</ol>
+<script src="js/prism/prism.js"></script>

@@ -1,0 +1,29 @@
+<ol>
+    <li>
+        <h3>[初始化]</h3>
+        <pre><code class="language-javascript">H.init({
+    indexUrl : 'doc',//首页
+    mark : '$', //默认!
+    beforeCall : function () {//跳转前调用
+        console.log('Loading...');
+    },
+    notFindUrlCall : function () {//找不到链接时调用
+        console.error('not find page');
+    }
+});</code></pre>
+    </li>
+
+    <li>
+        <h3>[初始化]</h3>
+        <pre><code class="language-javascript">H.router('doc', function () {
+    //...
+});
+//支持链式调用,如下
+H.router('test2', function () {
+    //...
+}).router('test3', function () {
+    //...
+});</code></pre>
+    </li>
+</ol>
+<script src="js/prism/prism.js"></script>

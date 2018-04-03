@@ -37,11 +37,17 @@ var H = (function (window) {
         return temp;
     }
 
+
     /**
      * initialize onhashchange
      */
     var _initHashChange = function () {
         var _that = this;
+        window.onload = function() {
+            var _now_hash = _that.getNowUrl();
+            window.location.hash = "";
+            window.location.hash = _that.options.mark + _now_hash;
+        };
         window.onhashchange = function() {
             var _now_hash = _that.getNowUrl();
 
@@ -63,11 +69,13 @@ var H = (function (window) {
                 }
 
             } else {
-                console.error(_logTipText, '[' + _now_hash + ']not find');
-                if(typeof _that.options.notFindUrlCall === "function") {
-                    _that.options.notFindUrlCall.call(null, _now_hash);
-                } else {
-                    console.error(_logTipText, '[notFindUrlCall] function error');
+                if (window.location.hash != '#') {
+                    console.error(_logTipText, '[' + _now_hash + ']not find');
+                    if(typeof _that.options.notFindUrlCall === "function") {
+                        _that.options.notFindUrlCall.call(null, _now_hash);
+                    } else {
+                        console.error(_logTipText, '[notFindUrlCall] function error');
+                    }
                 }
             }
         };
