@@ -16,7 +16,7 @@
     <div class="ui-header">
         <ul class="ui-nav">
             <li><a href="#!init">初始化</a></li>
-            <li><a href="#!doc">函数</a></li>
+            <li><a href="#!docs">函数</a></li>
             <li><a href="#!test">加载新页面js</a></li>
             <li><a href="#!test1">404</a></li>
         </ul>
@@ -26,7 +26,7 @@
         <div class="ui-menu">
             <ul class="ui-side">
                 <li><a href="#!init">初始化</a></li>
-                <li><a href="#!doc">函数</a></li>
+                <li><a href="#!docs">函数</a></li>
                 <li><a href="#!test">加载新页面js</a></li>
                 <li><a href="#!test1">404</a></li>
             </ul>
@@ -56,8 +56,8 @@
             $.get("init.html", function(result){
                 content.html(result);
             });
-        }).router('doc', function () {
-            $.get("doc.html", function(result){
+        }).router('docs', function () {
+            $.get("docs.html", function(result){
                 content.html(result);
             });
 

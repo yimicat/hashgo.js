@@ -1,20 +1,20 @@
 <ol>
     <li>
         <h3>[html标签跳转]</h3>
-        <pre><code class="language-javascript">&lt;a href="#!test2"&gt;test2&lt;/a&gt;</code></pre>
-        <div><a href="#!test2">test2</a></div>
+        <pre><code class="language-javascript">&lt;a href="#!init"&gt;跳转到初始化页面&lt;/a&gt;</code></pre>
+        <div><a href="#!init">跳转到初始化页面</a></div>
     </li>
 
     <li>
         <h3>[调用函数跳转]</h3>
-        <pre><code class="language-javascript">H.go('test3');</code></pre>
-        <div><button id="go_btn">H.go('test3')</button></div>
+        <pre><code class="language-javascript">H.go('test');</code></pre>
+        <div><button id="go_btn">H.go('test')</button></div>
     </li>
     <script>
         //go to test1.
         var go_btn = document.getElementById('go_btn');
         go_btn.onclick = function() {
-            H.go('test3');
+            H.go('test');
         };
     </script>
 
