@@ -1,5 +1,5 @@
 ##hashgo.js
-轻量单页路由框架<br />
+轻量单页路由<br />
 ```bash
 1.支持所有浏览器
 2.无 JavaScript 库依托
